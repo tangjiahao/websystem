@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<link type="text/css" rel="stylesheet" href="css/shopping.css"/>
+		
+		
+		<script type="text/javascript" src="js/shopping.js"></script>
+		<table border="2 solid blue" cellspacing="0" id="acetable">
+			<thead>
+				<tr>
+					<th>全选<input type="checkbox" id="chkAll" onclick="checkAll(this)"/></th>
+					<th>商品信息</th>
+					<th>单价</th>
+					<th>数量</th>
+					<th>金额</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="checkbox" class="chkItem" onclick="totalPrice();"/></td>
+					<td>编译原理</td>
+					<td>38.5</td>
+					<td>
+						<input  onclick="cut(this)" type="button" class="btn" value="-"/>
+						<input class="input_num" value="1"/>
+						<input onclick="increase(this);" type="button" class="btn" value="+"/>
+					</td>
+					<td>￥38.5</td>
+					<td>
+						<input type="button" class="btn" value="删除" name="dbn" onclick="deletespecifictags(this.parentNode)"/>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox"onclick="totalPrice();" class="chkItem"/></td>
+					<td>高等数学（上）</td>
+					<td>45</td>
+					<td>
+						<input onclick="cut(this)" type="button" class="btn" value="-"/>
+						<input class="input_num" value="1"/>
+						<input onclick="increase(this);" type="button" class="btn" value="+"/>
+					</td>
+					<td>￥45</td>
+					<td>
+						<input type="button" class="btn" value="删除" name="dbn" onclick="deletespecifictags(this.parentNode)"/>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" onclick="totalPrice();" class="chkItem"/></td>
+					<td>高等数学（下）</td>
+					<td>48</td>
+					<td>
+						<input onclick="cut(this)" type="button" class="btn" value="-"/>
+						<input class="input_num" value="1"/>
+						<input onclick="increase(this);" type="button" class="btn" value="+"/>
+					</td>
+					<td>￥48</td>
+					<td>
+						<input type="button" class="btn" value="删除" name="dbn" onclick="deletespecifictags(this.parentNode)"/>
+					</td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" onclick="totalPrice();" class="chkItem"/></td>
+					<td>大学物理（上）</td>
+					<td>58</td>
+					<td>
+						<input onclick="cut(this)" type="button" class="btn" value="-"/>
+						<input class="input_num" value="1"/>
+						<input onclick="increase(this);" type="button" class="btn" value="+"/>
+					</td>
+					<td>￥58</td>
+					<td>
+						<input type="button" class="btn" value="删除" name="dbn" onclick="deletespecifictags(this.parentNode)"/>
+					</td>
+				</tr>
+				<tr>
+					<td id="td_total" class="td_total_price" colspan="6">
+						总价：0&nbsp;&nbsp;<input  onclick="turnpage()" type="button" class="btn" value="结算"/>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+	
+</html>

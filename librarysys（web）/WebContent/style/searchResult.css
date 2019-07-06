@@ -1,0 +1,64 @@
+*{
+	margin: 0;padding: 0;font-family: "宋体"
+}
+.clear{
+	clear: both;
+}
+.search_page{
+	width: 1366px;margin: auto;
+}
+.header{
+	width: 100%;height: 48px;background-color: #252E57;
+}
+	.home{
+		display: inline-block;float: left;margin-left: 10%; font-size: 20px;color: #FFF;line-height: 48px;
+	}
+		.home a{
+			color: #FFF;text-decoration: none;
+		}
+			.home a:hover{
+			color: #AFBCF2;
+		}
+	.login{
+        display: inline-block;float: right;margin-right: 10%; line-height: 48px; font-size: 20px;color: #FFF;
+	}
+		.login:hover{
+			color: #AFBCF2;cursor: 
+		}
+.content{
+	width: 65%;height: 1000px; margin: auto; 
+}
+	.search{
+		width: 100%;height: 50px;border:5px solid #252E57;border-radius: 5px;margin: 70px 0px;
+	}
+		.search input{
+			width:83.3%;font-size: 23px;font-weight: bold;padding-left: 15px;border:0px;line-height: 50px;
+		}
+		.sch_btn{
+			width: 15%;float: right;background-color: #252E57;font-size: 23px;font-weight: bold;
+			line-height: 50px;text-align: center;color: #FFF;
+		}
+			.sch_btn:hover{
+				background-color: #AFBCF2;cursor: pointer;
+			}
+	.book_result{
+		width: 96%;margin:40px 2%;
+	}
+		.book_result ul li {
+			float: left;margin-right: 30px;list-style: none;line-height: 25px;font-size: 15px;
+		}
+		.bk_name{
+			width: 85%;font-size: 23px;line-height: 25px;border-bottom:1px solid #B1B3B1;
+		}
+		.bor_btn{
+			width: 15%;float: right;background-color: #28B138;margin-top: -25px;
+		}
+			.bor_btn:hover{
+				background-color: #76F081;cursor: pointer;
+			}
+			.btn_name{
+               width: 100%; font-size: 23px;line-height: 25px;text-align: center;
+			}
+			.bk_num{
+			   width: 100%; font-size: 17px;line-height: 25px;text-align: center;
+			}

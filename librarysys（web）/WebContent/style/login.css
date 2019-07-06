@@ -1,0 +1,69 @@
+*{
+	padding: 0;margin:0;font-family: "宋体"
+}
+.login_page{
+	width: 1366px;margin: auto;
+}
+.clear{
+	clear: both;
+}
+.page_top{
+	width: 100%;
+	height: 50px;
+	FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=#D5F3FF,endColorStr=#FFF); /*IE 6 7 8*/ 
+    background: -ms-linear-gradient(top, #D5F3FF,  #FFF);        /* IE 10 */
+    background:-moz-linear-gradient(top,#D5F3FF,#FFF);/*火狐*/ 
+	background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#D5F3FF), to(#FFF));/*谷歌*/ 
+    background: -o-linear-gradient(top, #D5F3FF, #FFF);  /*Opera 11.10+*/
+}
+.header{
+	width: 100%;height: 120px;
+}
+	.header img{
+		display: inline-block;margin:0px 0px 50px 150px;float: left;
+	}
+	.hello_word{
+		width: 350px;height:70px;font-size:25px; font-weight: bold; color: #0F558F;text-shadow:0px 4px 2px #D0D2DF; text-align: center;line-height: 110px;margin:0px 0px 50px 0px;float: left;
+	}
+.login{
+	width: 100%;background: url(../images/loginbcg.png) center no-repeat;padding: 50px  0px 50px 0px;
+}
+	.login_part{
+		width: 560px;height: 330px;  border: 8px solid #BBDEF2; border-radius: 20px; margin-right: 100px;float: right;
+	}
+		.role{
+			 display: inline-block; margin: auto;border: none;font-size: 20px;font-weight: 900;color: #2369A3;text-align: center; margin: 25px 0px 5px 200px;
+		}
+			.role option{
+				text-align: center;
+			}
+	    .lion{
+	    	width: 430px;height: 0px;border: 2.5px solid #BBDEF2; margin: auto; 
+	    }
+	    .login_input{
+	    	width: 430px;margin:auto;
+	    }
+	    	.user{
+	    		width: 34px;height: 34px; display: inline-block; border-radius: 17px;background-color: #90C320;color: #FFF;font-size: 17px;line-height: 34px;text-align: center;
+	    	}
+			.login_input input{
+				width: 350px;height: 40px;font-size: 20px;padding-left: 10px;margin-top: 25px;border:2px solid #000;
+			}
+			.text_red{
+				color: red;
+			}
+		.login_btn{
+			display:inline-block; width: 100px;height: 40px;font-size: 20px;font-weight: bold; color:#FFF; background-color: #2369A3; line-height: 40px;text-align: center;margin: 25px 0px 0px 150px;
+		}
+			.login_btn:hover{
+				background-color: #6CADDE;cursor: pointer;
+			}
+		.password_f{
+			 display:inline-block; font-size: 17px; font-weight: bold; color: #2369A3;margin: 25px 0px 0px 70px;
+		}
+			.password_f:hover{
+				text-decoration: underline;cursor: pointer;
+			}
+.from{
+	 width: 300px; font-size: 17px;font-weight: bold;color: #2369A3;margin:0px 0px 0px 100px;
+}

@@ -1,0 +1,43 @@
+.menu{
+	width: 100%; height: 40px;margin-bottom: 40px;border-bottom: 2px solid #d3d4d5;
+}
+    .menu ul{
+    	width: 90%;height: 40px; display: block; margin-left: 3%;
+    }
+	   .menu li{
+	   	list-style: none;float: left;padding:10px 30px;border-top-left-radius: 5px;border-top-right-radius: 5px;
+	   }
+	      .menu li:hover{
+	      	border-bottom:5px solid #fff;border-top:1px solid #d3d4d5;border-left:1px solid #d3d4d5;border-right:1px solid #d3d4d5; cursor: pointer;
+	      }
+	      .addCss{
+	      	border-bottom:5px solid #fff;border-top:1px solid #d3d4d5;border-left:1px solid #d3d4d5;border-right:1px solid #d3d4d5;
+	      }
+	      .outCss{
+	      	border-top-left-radius: 5px;border-top-right-radius: 5px;border: 0px;
+	      }
+
+.menu_left{
+	width: 100%;display: block;
+}
+.menu_right{
+	width: 98%;display: none;margin-left: 1%;
+}
+
+.submit{
+		width: 80px;height: 30px;color: #515567;font-size: 14px;margin-left:20px;margin-top: 15px; 
+	}
+.book_num{
+	display:inline-block;margin-left: 20px;
+}
+.book_num span{
+	color: #419EDE;
+}
+
+.bookMax{
+	 width: 525px;height: 34px;border: 1px solid #ccc; float: right;margin-right: 300px;font-size: 20px;
+	 border-radius: 5px;padding: 6px 12px;
+}
+.error{
+	color: red;
+}

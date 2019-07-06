@@ -1,0 +1,22 @@
+.table_div{
+	width: 98%;height: 650px;overflow: auto;margin: 0 1%;
+}
+
+	.table{
+		width: 100%;text-align: center;border-collapse: collapse;margin-top: 20px;
+	}
+		.table thead th{
+			border: 1px solid #d3d4d5; border-bottom: 2px solid #d3d4d5; height: 35px;
+		}
+		.table tbody td{
+	         border: 1px solid #d3d4d5;height: 30px;word-wrap: break-word;
+		}
+		.table tbody tr:hover{
+			background-color: #FAFAFA;
+		}
+		.tdOne{
+			width: 100px;
+		}
+		.tdTwo{
+			width: 50px;
+		}

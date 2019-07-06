@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>图书管理员-图书查询</title>
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+  <link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="../style/adMain.css">
+   <link rel="stylesheet" type="text/css" href="../style/adCheckBook.css">
+  <script type="text/javascript" src="../script/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript">
+     $(document).ready(function() {
+         var left_li= $(".left ul li:eq(6)");
+          left_li.css("color","#FFF");
+          left_li.css("background-color","#BBCAF1");
+          $(".left ul").find('li:eq(6)').children(".trig").css('display', 'block');
+          $(".table tbody tr:odd").css("backgroundColor","#FCF8E3");
+     });
+  </script>
+</head>
+<body>
+   <div class="ad_page">
+    <div class="header">
+      <img src="../images/logo.png">
+      <div class="state">
+        <div class="ad_name"><div class="fa_i"><i class="fa fa-user"></i></div><a href="../html/adPersonal.html">管理员01</a></div>
+        <div class="out"><a href="../html/index.html">退出</a></div>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="content">
+      <div class="left">
+        <ul>
+               <a href="../html/adBorrowBook.html"><li>读者借书<div class="trig"></div></li></a>
+               <a href="../html/adReturnBook.html"><li>读者还书<div class="trig"></div></li></a>
+               <a href="../html/adAddBook.html"><li>新书入库<div class="trig"></div></li></a>
+               <a href="../html/adOutBook.html"><li>图书出库<div class="trig"></div></li></a>
+               <a href="../html/adAlterBook.html"><li>修改图书信息<div class="trig"></div></li></a>
+               <a href="../html/adCheckBook.html"><li>查阅借阅记录<div class="trig"></div></li></a>
+               <a href="../html/adSearchBook.html"><li>查阅图书信息<div class="trig"></div></li></a>
+               <a href="../html/adPersonal.html"><li>管理员中心<div class="trig"></div></li></a>
+        </ul>
+      </div>
+      <div class="right">
+      <!-- class="ad_data"的div中是图书管理员系统的切换部分 -->
+        <div class="ad_data">
+           <div class="search">
+                    <input type="text" value="输入搜索信息" onfocus="if(value=='输入搜索信息') {value=''}" onblur="if (value=='') {value='输入搜索信息'}" />
+                    <div class="btn">搜索</div>
+           </div>
+                      <div class="table_div">
+                     <table class="table">
+                     <thead>
+                        <tr>
+                           <th class="tdOne">图书编号</th>
+                           <th>图书名称</th>
+                           <th class="tdTwo">作者</th>
+                           <th class="tdTwo">译者</th>
+                           <th class="tdTwo">价格</th>
+                           <th>出版社</th>
+                           <th class="tdOne">出版日期</th>
+                           <th>ISBN编码</th>
+                           <th class="tdTwo">入库者</th>
+                           <th class="tdOne">入库时间</th>
+                           <th class="tdOne">是否借出</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                         <tr>
+                           <td>20151111</td>
+                           <td>C#入门经典</td>
+                           <td>张三</td>
+                           <td>李三</td>
+                           <td>23</td>
+                           <td>人民教育出版社</td>
+                           <td>2015-1-1</td>
+                           <td>isbn</td>
+                           <td>李斯</td>
+                           <td>2014-11-11</td>
+                           <td>是</td>
+                        </tr>
+                         <tr>
+                           <td>20151111</td>
+                           <td>C#入门经典</td>
+                           <td>张三</td>
+                            <td>李三</td>
+                           <td>23</td>
+                           <td>人民教育出版社</td>
+                           <td>2015-1-1</td>
+                           <td>isbn</td>
+                           <td>李斯</td>
+                           <td>2014-11-11</td>
+                           <td>否</td>
+                        </tr>
+                            <tr>
+                              <td>20151111</td>
+                              <td>C#入门经典</td>
+                              <td>张三</td>
+                               <td>李三</td>
+                              <td>23</td>
+                              <td>人民教育出版社</td>
+                              <td>2015-1-1</td>
+                              <td>isbn</td>
+                              <td>李斯</td>
+                              <td>2014-11-11</td>
+                              <td>是</td>
+                           </tr>
+                            <tr>
+                              <td>20151111</td>
+                              <td>C#入门经典</td>
+                              <td>张三</td>
+                               <td>无</td>
+                              <td>23</td>
+                              <td>人民教育出版社</td>
+                              <td>2015-1-1</td>
+                              <td>isbn</td>
+                              <td>李斯</td>
+                              <td>2014-11-11</td>
+                              <td>否</td>
+                           </tr>
+                            <tr>
+                              <td>20151111</td>
+                              <td>C#入门经典</td>
+                              <td>张三</td>
+                               <td>无</td>
+                              <td>23</td>
+                              <td>人民教育出版社</td>
+                              <td>2015-1-1</td>
+                              <td>isbn</td>
+                              <td>李斯</td>
+                              <td>2014-11-11</td>
+                              <td>否</td>
+                           </tr>
+                            <tr>
+                              <td>20151111</td>
+                              <td>C#入门经典</td>
+                              <td>张三</td>
+                               <td>无</td>
+                              <td>23</td>
+                              <td>人民教育出版社</td>
+                              <td>2015-1-1</td>
+                              <td>isbn</td>
+                              <td>李斯</td>
+                              <td>2014-11-11</td>
+                              <td>是</td>
+                           </tr>
+                        </tbody>
+                     </table>
+                  </div>
+                 
+        </div>
+      </div>
+      <div class="clear"></div>
+    </div>
+   </div>
+</body>
+</html>

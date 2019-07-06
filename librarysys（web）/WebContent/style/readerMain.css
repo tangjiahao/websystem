@@ -1,0 +1,69 @@
+/*个人中心公共部分CSS样式*/
+*{
+	padding: 0px;margin: 0px;
+}
+body{
+	background-color: #EEF2F5;min-width: 1366px;
+}
+.clear{
+	clear: both;
+}
+.header{
+	width: 100%;height: 48px;background-color: #252E57;line-height: 48px;font-size: 17px;color: #FFF;font-weight: bold;
+}
+	.home_logo{
+		width: 20%;text-align: center; display: inline-block;font-size: 17px;font-weight: bold;
+	}
+		.home_logo i{
+         	color: #FFF;font-weight: bold;
+		}
+			.home_logo i:hover{
+         	color: #4B62BF;
+		}
+	.page_title{
+	     width: 58%;text-align: center; display: inline-block; 
+	}
+	.out_page{
+	     width: 20%;text-align: center; display: inline-block; 
+	}
+		.out_page:hover{
+			color: #4B62BF;cursor: pointer;
+		}
+.book_logo{
+	margin-top: 75px;
+}
+	.book_logo img{
+		width: 8%;display: block;margin: 0 auto;
+	}
+.reader_name{
+	font-size: 23px; font-weight: bold; text-align: center;margin-top: 25px;color: #419EDC;
+}
+.menu ul{
+	 width: 51%; margin: 0 auto;margin-top: 43px;
+}
+.menu ul li{
+     line-height: 68px; padding: 0 3%;list-style: none; float: left;background-color: #FFF;font-size: 23px;font-weight: bold;
+}
+.menu a{
+	 text-decoration: none;color: #54586A;
+}
+	.menu ul li:hover{
+			border-bottom: 7px solid #419EDC;margin-top: -7px;color: #419EDC;
+	}
+.first_li{
+    border-top: 1px solid #D4D5D6;border-bottom: 2px solid #D4D5D6; border-left: 1px solid #D4D5D6;  border-right: 1px dashed #D4D5D6;
+}
+.last_li{
+	border-top: 1px solid #D4D5D6;border-bottom: 2px solid #D4D5D6; border-right: 1px solid #D4D5D6;
+}
+.other_li{
+    border-top: 1px solid #D4D5D6;border-bottom: 2px solid #D4D5D6; border-right: 1px dashed #D4D5D6;
+}
+.content{
+	width: 90%;height: 650px;border:5px solid #419EDC;margin: 0 auto;margin-top: 35px;border-radius: 15px;
+	padding:40px 0px;
+}
+.footer{
+	width: 1366px;height: 48px;text-align: center;font-size: 14px;color: #FFF;background-color: #262F5A;margin-top: 35px;
+}
+	

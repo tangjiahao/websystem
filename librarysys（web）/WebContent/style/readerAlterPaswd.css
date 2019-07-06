@@ -1,0 +1,17 @@
+.data{
+ 			width: 100%;height: 45px;line-height: 35px;margin-bottom: 5px;
+ 		}
+	 		.data label{
+	              font-size: 14px; float: left;margin-left: 25%;color: #515567;font-weight: bold;
+	 		}
+	 		.data input{
+	             width: 500px;height: 20px;border: 1px solid #ccc; float: right;margin-right: 300px;font-size: 20px;border-radius: 5px;
+                padding: 6px 12px;
+	 		}
+	 		.add_btn{
+	 		width: 100px;height: 35px; font-size: 20px; line-height: 35px;text-align: center;border: 1px solid #419EDC;border-radius: 5px;
+	 		display: inline-block;margin:10px 30px 10px 550px;
+	 	}
+	 		.add_btn:hover{
+	 			background-color: #C9E5F5;cursor: pointer;
+	 		}

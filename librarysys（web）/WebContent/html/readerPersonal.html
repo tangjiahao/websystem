@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>基本资料</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<link rel="stylesheet" type="text/css" href="../font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="../style/readerMain.css">
+	<link rel="stylesheet" type="text/css" href="../style/readerPersonal.css">
+	<script type="text/javascript" src="../script/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript">
+	  $(function(){
+	  	 var Lis=$(".menu ul li").eq(0);
+	  	 Lis.css('border-bottom', '7px solid #419EDC');
+	  	 Lis.css('margin-top', '-7px');
+	  	 Lis.css('color', '#419EDC');
+	  })
+	</script>
+</head>
+<body>
+<div class="header">
+	<div class="header">
+		<div class="home_logo"><a  href="../html/index.html"><i class="fa fa-home">首页</i></a></div>
+		<div class="page_title">个人中心</div>
+		<div class="out_page">退出</div>
+	</div>
+</div>
+<div class="book_logo">
+	<img src="../images/booklogo.png">
+</div>
+<div class="reader_name">张三</div>
+<div class="menu">
+	<ul>
+		<a href="../html/readerPersonal.html"><li class="first_li">基本资料</li></a>
+		<a href="../html/readerAlterData.html"><li class="other_li">修改资料</li></a>
+		<a href="../html/readerAlterPaswd.html"><li class="other_li">修改密码</li></a>
+		<a href="../html/readerBorrowing.html"><li class="other_li">在借图书</li></a>
+		<a href="../html/readerBorrowed.html"><li class="last_li">借阅记录</li></a>
+	</ul>
+	<div class="clear"></div>
+</div>
+<!-- class="content"的div中是个人中心的切换部分 -->
+<div class="content">
+	<div class="data"><label>借阅号</label><div>110110110</div></div>
+	<div class="data"><label>用户名</label><div>李四</div></div>
+    <div class="data"><label>学院</label><div>计算机科学与工程</div></div>
+    <div class="data"><label>专业</label><div>计算机科学与技术</div></div>
+	<div class="data"><label>电话</label><div>1008610001</div></div>
+    <div class="data"><label>邮箱</label><div>123456@qq.com</div></div>
+    <div class="data"><label>借阅上限</label><div>10</div></div>
+    <div class="data"><label>借阅期限</label><div>30天</div></div>
+    <div class="data"><label>已借数量</label><div>0</div></div>
+</div>
+<div class="footer">
+	    <br/>   
+		<p>@Copyright重庆理工大学中山图书馆</p>
+	</div>
+</body>
+</html>
