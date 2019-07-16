@@ -3,7 +3,7 @@ package Bean;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Student implements Serializable {
+public class Student implements Serializable,Comparable<Student> {
 	private String Id;
 	private String name;
 	private String birthday;
@@ -63,6 +63,12 @@ public class Student implements Serializable {
 	public String toString() {
 		return "Student [Id=" + Id + ", name=" + name + ", birthday=" + birthday + ", description=" + description
 				+ ", avgscore=" + avgscore + "]";
+	}
+
+	@Override
+	public int compareTo(Student o) {
+		// TODO Auto-generated method stub
+		return o.getAvgscore()-this.getAvgscore();
 	}
 	
 

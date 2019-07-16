@@ -6,6 +6,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -16,6 +17,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import org.apache.jasper.tagplugins.jstl.core.Out;
 
 import Bean.SerializeUtil;
 import Bean.Student;
@@ -53,12 +56,13 @@ public class TestRedis extends HttpServlet {
     	Student stu=new Student(id, name, birthday, des, avg);
     	jedis.lpush("StudentBase".getBytes(), SerializeUtil.serialize(stu));
     	
+    	
     }
     public pageStu getPageStu(int pageindex) {
     	Long len=jedis.llen("StudentBase".getBytes());
     	pageStu pStu=new pageStu();
     	pStu.setPageindex(pageindex);
-    	pStu.setPagemax((int)Math.ceil(len/5.0));
+    	pStu.setPagemax((int)Math.ceil(len/10.0));
     	//如果请求的页面超出最后一页
     	if(pStu.getPagemax()<=pageindex) {
     		pStu.setPageindex(pStu.getPagemax());
@@ -81,14 +85,30 @@ public class TestRedis extends HttpServlet {
     		index=pagemax;
     	}
     	List<Student> list0=new ArrayList<Student>();
-		 //获取studentbase列表里的元素
-		 List<byte[]> list1= jedis.lrange("StudentBase".getBytes(),(index-1)*5,index*5-1);
+		 //获取studentbase列表里的所有元素
+		 List<byte[]> list1= jedis.lrange("StudentBase".getBytes(),0,-1);
 		 list1.forEach(s->{
 		 Student student=(Student)SerializeUtil.unserialize(s);
 		 list0.add(student);
 		 
 		 });
-		 return list0;
+		 if(list0.size()!=0) {
+	//		 list0.forEach(s->System.out.println(s));
+			 Collections.sort(list0);
+			 int start=(index-1)*10;
+			 int end=index*10;
+			 //下面是防止数组越界的避免
+			 if(end>=list0.size()) {
+				 end=list0.size();
+			 }
+			 if(start>end) {
+				 start=0;
+			 }
+			 return list0.subList(start,end);
+		 }
+		 System.out.println("redis为空，无法访问展示");
+		 return null;
+		 
 		 
 	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -97,8 +117,9 @@ public class TestRedis extends HttpServlet {
         request.setCharacterEncoding("utf-8");
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		 PrintWriter out = response.getWriter();
+
 		 String handle=null;
-//		 DeleteAll();
+
 		 //传过来的处理请求没有指明方式或者指明查询，就默认跳转到学生的信息界面
 		 if(request.getParameter("handle")==null ||request.getParameter("handle")==""
 				 ||request.getParameter("handle").equals("watch")){
@@ -186,7 +207,7 @@ public class TestRedis extends HttpServlet {
         	 InsertOne(stuid, name, birthday, des, avg);
         	 request.getRequestDispatcher("TestRedis?handle=watch&&pageindex=1").forward(request,response);
          }
-         
+//         DeleteAll();
 		
 //		 InsertOne("1001", "ace", "1995-1-15", "没什么好说的",62);
 //		 InsertOne("1002", "mike", "1996-1-15", "没什么好说的",68);
