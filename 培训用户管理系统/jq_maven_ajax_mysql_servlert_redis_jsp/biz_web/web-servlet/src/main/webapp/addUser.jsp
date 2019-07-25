@@ -10,9 +10,9 @@
 		<script src="./js/jquery-3.0.0.min.js"></script>
 		<script>
         $(function(){
-      
+        	
         	 function check_name(){
-         	    var reg=/^[\da-zA-Z_]{1,}$/;
+         	    var reg=/^[\da-zA-Z]{1,}$/;
          		var a=true;
          		if(!reg.test($(".onlyNumAlpha").val()))
          		{
@@ -43,6 +43,17 @@
          		}
          		return c;
          	}
+         	function check_area(){
+         		var pro=$('.province').val();
+         		var city=$('.city').val();
+         		var e=true;
+         		if(pro==null ||city==null){
+         			e=false;
+         			alert("地区省和市必选");
+         		}
+         		
+         		return e;
+         	}
          	function check_hobby(){
          		var opts=$('input[type=checkbox]:checked').length;
          		/* alert(opts); */
@@ -65,13 +76,18 @@
          		check_mail();
          	})
          	
+         	
+         		
+         	
+         	
          		$(".allcheck").click(function(){
-         	    let a,b,c;
+         	    let a,b,c,d,e;
          	    a=check_name();
          	    b=check_pwd();
          	    c=check_mail();
          		d=check_hobby();
-         		if(a&&b&&c&&d)
+         		e=check_area();
+         		if(a&&b&&c&&d&&e)
          		{
          			alert("信息输入正确");
          			$("form").submit();
@@ -119,18 +135,12 @@
 		
 		</script>
 	</head>
-	<% String username=(String)request.getSession().getAttribute("user_name");
-	   if(username==null||username=="")
-	   {
-		   request.setAttribute("tip","还没有登录,无权使用本系统");
-		   request.getRequestDispatcher("login.jsp").forward(request, response);
-	   }
-	%>
+	
 	<body>
 		<form  method="post" action="Register">
-		用户名：<input type="text"  class="onlyNumAlpha" name="user_name"/><br />
-		密码：<input type="password" class="pwdcheck" name="user_pwd"/><br />
-		邮箱：<input type="text" class="mailcheck" name="user_mail"/><br />
+		用户名：<input type="text"  class="onlyNumAlpha" name="user_name" placeholder="只能为字母和数字组合"/><br />
+		密码：<input type="password" class="pwdcheck" name="user_pwd" placeholder="必须包含大小写字母和数字"/><br />
+		邮箱：<input type="text" class="mailcheck" name="user_mail" placeholder="如123@163.com"/><br />
 		省：<select class="province" name="province">
 		<c:forEach items="${prolist}" var="lac">
          <option  value="${lac}">${lac}</option>

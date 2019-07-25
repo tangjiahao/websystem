@@ -126,7 +126,7 @@ public class UserRepo {
 		 try {
 			pst = con.prepareStatement(endString);
 			pst.setInt(1, (index-1)*pagesize);
-			 pst.setInt(2,index*pagesize);
+			 pst.setInt(2,pagesize);
 			 ResultSet resultSet=pst.executeQuery();
 	        while (resultSet.next()) {
 	        	String p1=resultSet.getString(1);
@@ -169,13 +169,13 @@ public class UserRepo {
 	         try {
 	        	con.setAutoCommit(false);//JDBC中默认是true，自动提交事务
 				PreparedStatement pst=con.prepareStatement(sql0);
-				 pst.setString(1, id);
-	             pst.setString(2, name);
+				 pst.setString(1,id);
+	             pst.setString(2,name);
 	             pst.setString(3,pwd);
 	             pst.setString(4,mail);
 	             pst.setString(5,area);
-	             pst.setString(6, hobby);
-	             pst.setString(7, job);
+	             pst.setString(6,hobby);
+	             pst.setString(7,job);
 	             pst.setString(8,time);
 				 flag=pst.executeUpdate();
 				 con.commit();//提交事务
@@ -233,6 +233,7 @@ public class UserRepo {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println("flag:"+flag);
         return flag;
 	} 
 }

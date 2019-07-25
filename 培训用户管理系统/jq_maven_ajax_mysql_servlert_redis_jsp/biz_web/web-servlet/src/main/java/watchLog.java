@@ -32,6 +32,10 @@ public class watchLog extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
         request.setCharacterEncoding("utf-8");
         String name=request.getParameter("user_name");
+        if(name==null) {
+        	 request.setAttribute("tip","错误访问日志处理");
+             request.getRequestDispatcher("userMenu.jsp").forward(request, response);
+        }
         List<String> listace=UserRedis.getUserLog(name);
         listace.forEach(s->System.out.println(s));
         System.out.println(name);

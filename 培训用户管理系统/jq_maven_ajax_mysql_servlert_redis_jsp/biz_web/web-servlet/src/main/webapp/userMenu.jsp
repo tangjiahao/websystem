@@ -31,13 +31,7 @@ text-align:letf;
 </style>
 </head>
 <body>
-<% String username=(String)request.getSession().getAttribute("user_name");
-	   if(username==null||username=="")
-	   {
-		   request.setAttribute("tip","还没有登录,无权使用本系统,请先登录");
-		   request.getRequestDispatcher("login.jsp").forward(request, response);
-	   }
-	%>
+
 <c:forEach items="${listace}" var="lac">
 ${lac}<br>
 </c:forEach>
@@ -62,16 +56,18 @@ ${lac}<br>
 <td>
 <a href="turnToUpdate?name=${lac.user_name}">更新</a>
 <a href="deleteUser?name=${lac.user_name}">删除</a>
-<a href="manageJob.jsp">管理职位</a>
+<a href="turnToJob?user_name=${lac.user_name}">管理职位</a>
 <a href="watchLog?user_name=${lac.user_name}">登录日志</a>
 </td>
 </tr>
 
 </c:forEach>
 </table>
+<a href="serchUser?pageindex=1&&pagesize=5&&user_name=${page.option}&&pagenum=${page.pagenum}">首页</a>
 <a href="serchUser?pageindex=${page.index-1}&&pagesize=5&&user_name=${page.option}&&pagenum=${page.pagenum}">上一页</a>
 ${page.index}/${page.pagenum}
 <a href="serchUser?pageindex=${page.index+1}&&pagesize=5&&user_name=${page.option}&&pagenum=${page.pagenum}">下一页</a>
+<a href="serchUser?pageindex=${page.pagenum}&&pagesize=5&&user_name=${page.option}&&pagenum=${page.pagenum}">尾页</a>
 <br>
 
 </c:if>

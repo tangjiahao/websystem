@@ -39,11 +39,15 @@ public class loginCheck extends HttpServlet {
         String name=request.getParameter("user_name");
         String pwd=request.getParameter("user_pwd");
         String autologin=request.getParameter("autologin");
-        System.out.println(name);
-        System.out.println(pwd);
+//        System.out.println(name);
+//        System.out.println(pwd);
 //        System.out.println(autologin);
         
-        
+        if(name==null||pwd==null) {
+        	 request.setAttribute("tip","用户名和密码不能为空，登录失败");
+             request.getRequestDispatcher("login.jsp").forward(request, response);
+             return;
+        }
         List<User> userlist=UserRepo.serchUserByName(name);
         int flag=0;
         //比对密码是否相等
@@ -59,16 +63,19 @@ public class loginCheck extends HttpServlet {
         //如果密码和用户名核对正确
         if(flag==1)
         {
+        	 //将用户信息写入session,记录服务器
         	 request.getSession().setAttribute("user_name",name);
-        	 //正常情况设置一小时的session
-             request.getSession().setMaxInactiveInterval(60*60);
         	//30天自动登录框被选中，进行处理, 增加一个30天的cookie，session也设置为30天
             if(autologin!=null) {
             	System.out.println("选中");
-            	 request.getSession().setAttribute("autologin","true");
-                 request.getSession().setMaxInactiveInterval(60*60*24*30);
+            	 Cookie  cookie = new Cookie("autologin",name);
+            	
+            	 cookie.setMaxAge(60*60*24*30);
+            	 response.addCookie(cookie);
+            	 
+                
             }
-
+           
             //记录登录时间到日志
             UserRedis.insertUserlog(name);
             request.setAttribute("tip","登录成功,欢迎："+name);

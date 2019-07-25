@@ -24,8 +24,9 @@ public class ConnectJdbc{
 		     }
 	public static void close(Connection conn) {
         try {
-            if (conn != null)
+            if (conn != null) {
                  conn.close();
+            }
            } catch (Exception e) {
              e.printStackTrace();
            }

@@ -4,6 +4,16 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <filter>
+  	<filter-name>BizFilter</filter-name>
+  	<display-name>BizFilter</display-name>
+  	<description></description>
+  	<filter-class>BizFilter</filter-class>
+  </filter>
+  <filter-mapping>
+  	<filter-name>BizFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
   <servlet>
   	<servlet-name>Try</servlet-name>
   	<display-name>Try</display-name>
@@ -76,6 +86,12 @@
   	<description></description>
   	<servlet-class>loginOut</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>turnToJob</servlet-name>
+  	<display-name>turnToJob</display-name>
+  	<description></description>
+  	<servlet-class>turnToJob</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>Try</servlet-name>
   	<url-pattern>/Try</url-pattern>
@@ -123,5 +139,9 @@
   <servlet-mapping>
   	<servlet-name>loginOut</servlet-name>
   	<url-pattern>/loginOut</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>turnToJob</servlet-name>
+  	<url-pattern>/turnToJob</url-pattern>
   </servlet-mapping>
 </web-app>

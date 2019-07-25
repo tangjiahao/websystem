@@ -35,16 +35,23 @@ public class manageJob extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
         request.setCharacterEncoding("utf-8");
         String handle=request.getParameter("handle");
-        System.out.println(handle);
-        if(handle.equals("watch")) {
-        	List<UserJob> listJobs=UserJobRepo.getAllJob();
+//        System.out.println(handle);
+        if(handle==null) {
+        	request.setAttribute("tip", "错误访问职位管理");
+    		request.getRequestDispatcher("userMenu.jsp").forward(request,response);
+        }
+        if("watch".equals(handle)) {
+        	String user_name=request.getParameter("user_name");
+        	List<UserJob> listJobs=UserJobRepo.getAllJob(user_name);
         	String ace= JSONArray.fromObject(listJobs).toString();
         	response.getWriter().write(ace);
+        	
         }
-        if(handle.equals("add")) {
+        if("add".equals(handle)) {
         	String name=request.getParameter("jobname");
+        	String user_name=request.getParameter("user_name");
         	System.out.println(name);
-        	int flag=UserJobRepo.insertUser(name);
+        	int flag=UserJobRepo.insertUser(name,user_name);
         	if(flag==1) {
         		System.out.println("职称插入成功");
         	}
@@ -52,7 +59,7 @@ public class manageJob extends HttpServlet {
         		System.out.println("插入失败");
         	}
         }
-        if(handle.equals("delete")) {
+        if("delete".equals(handle)) {
         	int job_id=Integer.parseInt(request.getParameter("job_id"));
         	System.out.println(job_id);
         	int flag=UserJobRepo.deleteJobById(job_id);

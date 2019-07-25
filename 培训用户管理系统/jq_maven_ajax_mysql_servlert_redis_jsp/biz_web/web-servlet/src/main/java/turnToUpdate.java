@@ -34,7 +34,7 @@ public class turnToUpdate extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
         request.setCharacterEncoding("utf-8");
         String name=request.getParameter("name");
-    
+        
         if(name!=null&&name!="") {
         	System.out.println(name);
         	List<User> userlist=UserRepo.serchUserByName(name);

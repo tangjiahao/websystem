@@ -20,12 +20,17 @@
 </style>
 </head>
 <body >
-<%
-   if(request.getSession().getAttribute("autologin")!=null)
-   {
-	   request.getRequestDispatcher("userMenu.jsp").forward(request, response);
-   }
-%>
+<%-- <%Cookie[] cookies = request.getCookies();//创建一个cookie集合并拿到cookie放入创建好的cookie集合里面
+//遍历cookie集合并判断是否有自己想要的指定cookie如果有则返回指定cookie的值，如果没有则返回空字符串
+for (Cookie cookie:cookies){
+    if ("autologin".equals(cookie.getName())&&"true".equals(cookie.getValue())){
+    	
+        request.getRequestDispatcher("userMenu.jsp").forward(request, response);
+    	
+    }
+}
+
+%> --%>
 <p style="color:red;">${tip}</p>
 <form method="post" action="loginCheck" onsubmit="return checkinfo();">
 用户名：<input type="text" name="user_name"/><br>
@@ -77,7 +82,7 @@
 	//检查验证码是否正确
        function checkinfo(){
 
-       	if($(".checkNum2").val()==$(".checkNum").html()){
+       	if($(".checkNum2").val().toUpperCase()==$(".checkNum").html().toUpperCase()){
 //     		alert("验证码输入正确");
        		return true;
        	}

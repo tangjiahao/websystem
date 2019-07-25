@@ -30,12 +30,11 @@ public class loginOut extends HttpServlet {
         request.setCharacterEncoding("utf-8");
        
      // 下面是删除自动登录的cookie
-//        Cookie cookie = new Cookie("autologin", null);
-//		cookie.setMaxAge(0);// 删除
-//		cookie.setPath("/");
-//		response.addCookie(cookie);
+        Cookie cookie = new Cookie("autologin", null);
+		cookie.setMaxAge(0);// 删除
+		response.addCookie(cookie);
 		request.getSession().removeAttribute("user_name");
-	    request.getSession().removeAttribute("autologin");
+	   
 	
 //		if(null != request.getCookies()){
 //		    Cookie[] cookie1 = request.getCookies();

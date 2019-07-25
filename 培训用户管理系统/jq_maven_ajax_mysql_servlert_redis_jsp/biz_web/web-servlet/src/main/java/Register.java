@@ -39,19 +39,31 @@ public class Register extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		String user_name=request.getParameter("user_name");
         String user_pwd=request.getParameter("user_pwd");
+//        System.out.println(user_pwd);
         String user_mail=request.getParameter("user_mail");
         String user_area1=request.getParameter("province");
         String user_area2=request.getParameter("city");
+       
+        String[] values = request.getParameterValues("hobby") ;
+        if(user_name==null||user_pwd==null||user_area1==null||user_area2==null||values==null||user_mail==null) {
+        	request.setAttribute("tip", "错误访问注册处理");
+    		request.getRequestDispatcher("userMenu.jsp").forward(request,response);
+    		return;
+        }
         String user_area=user_area1+"/"+user_area2;
        //获取爱好
-        String[] values = request.getParameterValues("hobby") ;
+       
         String hobbyString="";
         if(values!=null&&values.length>0) {
-        for(int i= 0 ;i<values.length;i++)
+        for(int i= 0 ;i<values.length;i++) {
              hobbyString+="/"+values[i];
+            
         }
+        }
+        
 //        System.out.println(hobbyString);
         Date date = new Date();
+      
 		DateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm"); // HH表示24小时制；
 		String time = dFormat.format(date);
 		int flag=UserRepo.insertUser(user_name, user_pwd, user_mail, user_area, hobbyString, "", time);
@@ -60,7 +72,7 @@ public class Register extends HttpServlet {
 			request.getRequestDispatcher("userMenu.jsp").forward(request,response);
 			return;
 		}
-		request.setAttribute("tip", "添加失败");
+		request.setAttribute("tip", "添加失败,用户名已存在");
 		request.getRequestDispatcher("userMenu.jsp").forward(request,response);
 	}
 

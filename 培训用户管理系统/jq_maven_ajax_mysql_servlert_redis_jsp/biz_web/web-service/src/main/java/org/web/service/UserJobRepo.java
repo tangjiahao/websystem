@@ -11,15 +11,16 @@ import java.util.List;
 
 public class UserJobRepo {
 	//返回一个插入是否成功的值，1表示成功，0表示失败
-			public static int insertUser(String name) {
+			public static int insertUser(String name,String user_name) {
 				 Connection con=ConnectJdbc.getConection();
 				 int flag=0;
-				 String sql0="insert into user_job(job_name) values(?)";
+				 String sql0="insert into user_job(job_name,user_name) values(?,?)";
 		         
 		         try {
 		        	con.setAutoCommit(false);//JDBC中默认是true，自动提交事务
 					PreparedStatement pst=con.prepareStatement(sql0);
 					 pst.setString(1,name);
+					 pst.setString(2,user_name);
 					 flag=pst.executeUpdate();
 					 con.commit();//提交事务
 			         ConnectJdbc.close(con);
@@ -33,15 +34,17 @@ public class UserJobRepo {
 
 				
 			}
-			public static List<UserJob> getAllJob(){
+			public static List<UserJob> getAllJob(String user_name){
 				 Connection con=ConnectJdbc.getConection();
 				 List<UserJob> listJobs=new ArrayList<UserJob>();
-				 String sql0="select * from user_job";
+				 String sql0="select * from user_job where user_name=?";
 		         
 		         
 		     	 PreparedStatement pst;
 				 try {
+					
 					pst = con.prepareStatement(sql0);
+					pst.setString(1,user_name);
 					 ResultSet resultSet=pst.executeQuery();
 			         while (resultSet.next()) {
 			         	int p1=resultSet.getInt(1);

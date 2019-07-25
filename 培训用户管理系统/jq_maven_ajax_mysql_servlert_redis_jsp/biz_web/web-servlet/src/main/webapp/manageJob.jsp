@@ -25,17 +25,12 @@
 
 </head>  
 <body> 
-    <% String username=(String)request.getSession().getAttribute("user_name");
-	   if(username==null||username=="")
-	   {
-		   request.setAttribute("tip","还没有登录,无权使用本系统,请先登录");
-		   request.getRequestDispatcher("login.jsp").forward(request, response);
-	   }
-	%>
+   
     <h2>管理职位</h2>
     <div class="content" >
     <input type="button"  value="载入" class="loadbt">
      <input type="button"  value="添加" class="addbt">
+   <input class="acename" value="${user_name}" style="display:none;">
     <div  class="job_box" style="position:absolute;z-index:-1;">
        <table class="job_table"  border="1px" bordercolor="black" 
             bgcolor="white" cellspacing="0px" width="250px">
@@ -63,9 +58,10 @@
 	$(function(){
 		/* 加载职位的函数 */
 		function watch_job(){
+			var username=$('.acename').val();
 			 $.ajax({
     	        	type:"post",
-    	        	url:"manageJob?handle=watch",
+    	        	url:"manageJob?handle=watch&&user_name="+username,
     	        	async:true,
     	        	
     	        	success:function(data){
@@ -96,7 +92,7 @@
     	    			        	
     	    			        	success:function(data){
     	    			        		watch_job();
-    	    			        		window.location.reload();
+    	    			        		
     	    			        		
     	    			        	}
     	    			        });
@@ -121,18 +117,22 @@
 		 /* 点确认增加按钮关闭输入框 */
      $(".confirm").click(function() {
     	 var name=$(".jobname").val();
+    	 var username=$('.acename').val();
+    	 /* alert(name);
+    	 alert(username); */
     	 if(name==""){
     		 alert("职称名不能为空");
     		 return false;
     	 }
     	 $.ajax({
 	        	type:"post",
-	        	url:"manageJob?handle=add&&jobname="+name,
+	        	url:"manageJob?handle=add",
 	        	async:true,
+	        	data: { jobname:name, user_name:username},
 	        	
 	        	success:function(data){
 	        		watch_job();
-	        		window.location.reload();
+	        		
 	        		
 	        	}
 	        });

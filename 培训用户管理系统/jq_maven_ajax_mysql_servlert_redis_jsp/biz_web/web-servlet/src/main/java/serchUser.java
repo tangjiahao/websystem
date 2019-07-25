@@ -39,11 +39,17 @@ public class serchUser extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
         request.setCharacterEncoding("utf-8");
         PrintWriter out = response.getWriter();
+        if(request.getParameter("pageindex")==null||request.getParameter("pagesize")==null||request.getParameter("pagenum")==null) {
+			request.setAttribute("tip","错误访问查询");
+		  	request.getRequestDispatcher("userMenu.jsp").forward(request,response);
+		  	return;
+		}
         int pageidx=Integer.parseInt(request.getParameter("pageindex"));
 		int pagesize=Integer.parseInt(request.getParameter("pagesize"));
 		int pagenum=Integer.parseInt(request.getParameter("pagenum"));
 		List<User> userList=new ArrayList<User>();
 		pageUtil page=new pageUtil();
+		
 		//如果传了搜索的名字，进行简单模糊查询
 		if(request.getParameter("user_name")!=null && request.getParameter("user_name")!="") {
 			//防止分页越界

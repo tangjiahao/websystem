@@ -51,7 +51,7 @@ public class login extends HttpServlet {
 
 		} else {
 			String name = "admin";
-			String pwd = "admin";
+			String pwd = "adminTj6";
 			Date date = new Date();
 			DateFormat dFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm"); // HH表示24小时制；
 			String time = dFormat.format(date);

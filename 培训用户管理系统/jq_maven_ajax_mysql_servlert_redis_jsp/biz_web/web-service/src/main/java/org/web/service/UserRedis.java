@@ -22,4 +22,9 @@ public class UserRedis {
 		List<String> sList=jedis.lrange(name+"_log", 0,-1);
 		return sList;
 	}
+    public static long deleteUserLog(String name) {
+		long flag=jedis.del(name+"_log");
+		System.out.println(flag);
+		return flag;
+	}
 }

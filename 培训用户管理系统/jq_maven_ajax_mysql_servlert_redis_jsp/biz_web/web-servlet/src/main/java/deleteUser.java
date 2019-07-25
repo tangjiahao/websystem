@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.web.service.UserRedis;
 import org.web.service.UserRepo;
 
 /**
@@ -31,7 +32,15 @@ public class deleteUser extends HttpServlet {
         request.setCharacterEncoding("utf-8");
        
         String user_name=request.getParameter("name");
-        if(UserRepo.deleteUserByName(user_name)==1) {
+        if(user_name==null)
+        {
+        	request.setAttribute("tip", "删除失败，用户名不能为空");
+			request.getRequestDispatcher("userMenu.jsp").forward(request,response);
+			return;
+        }
+        if(UserRepo.deleteUserByName(user_name)>=1) {
+        	//删除日志文件
+        	UserRedis.deleteUserLog(user_name);
         	request.setAttribute("tip", "删除成功");
 			request.getRequestDispatcher("userMenu.jsp").forward(request,response);
 			return;
